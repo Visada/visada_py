@@ -6,7 +6,7 @@ This is the Python client for using the Visada API. You'll need to get an API ke
 Here's what you can do with the API:
 
 * Review summarization: extract reasons why reviewers liked or didn't like the entity being reviewed. Here's an example of
-a [review summary](http://api.visada.io/review_sets/552ef4c6db5f093b870180be/visualize) which summaries the reviews
+a [review summary](http://api.visada.io/review_sets/552ef4c6db5f093b870180be/visualize) which summarizes the reviews
 of this [suitcase at Amazon](http://www.amazon.com/Rockland-Luggage-Melbourne-Expandable-Turquoise/dp/B00CBT5F44/ref=lp_15743261_1_5?s=apparel&ie=UTF8&qid=1429140644&sr=1-5%27).
 * Face blemish removal (coming soon)
 * Makeup simulation (coming soon)
@@ -36,9 +36,9 @@ review_set_id = api_client.create_review_set()
 # A single review consists of the text of the review, and the score assigned to the review.
 # You'll want to add as many reviews as possible to get the best possible summary.
 
-api_client.add_review(review_set_id, 'This suitcase was so-so.', 3)
-api_client.add_review(review_set_id, 'This suitcase was amazing.', 5)
-api_client.add_review(review_set_id, 'This suitcase was terrible.', 1)
+api_client.add_review_to_review_set(review_set_id, 'This suitcase was so-so.', 3)
+api_client.add_review_to_review_set(review_set_id, 'This suitcase was amazing.', 5)
+api_client.add_review_to_review_set(review_set_id, 'This suitcase was terrible.', 1)
 
 # Once you've added all your reviews, start the summarization process
 
