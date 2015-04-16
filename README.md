@@ -27,6 +27,7 @@ api_client = visada.client.VisadaAPI(<YOUR API KEY>)
 Usage - Review Summarization
 ----------------------------
 
+```python
 # Create a new review set - you'll refer to it via its review_set_id
 review_set_id = api_client.create_review_set()
 
@@ -46,5 +47,12 @@ status = api_client.start_review_set_summarization_process(review_set_id)
 
 while True:
     result = api_client.get_review_set_info(review_set_id)
+    if result['status'] != 'processing':
+        break
+    else:
+        time.sleep(5)
+        
+
+```
 
 
