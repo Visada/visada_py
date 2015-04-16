@@ -42,7 +42,7 @@ api_client.add_review_to_review_set(review_set_id, 'This suitcase was terrible.'
 
 # Once you've added all your reviews, start the summarization process
 
-status = api_client.start_review_set_summarization_process(review_set_id)
+status = api_client.start_review_set_summarization(review_set_id)
 
 # Poll the API until the summarization process is finished
 
