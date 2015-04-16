@@ -16,11 +16,12 @@ of this [suitcase at Amazon](http://www.amazon.com/Rockland-Luggage-Melbourne-Ex
 Initialization
 --------------
 
+```python
 import visada.client
 
 # Instantiate the API object with your API key
 api_client = visada.client.VisadaAPI(<YOUR API KEY>)
-
+```
 
 
 
@@ -51,7 +52,7 @@ while True:
         break
     else:
         time.sleep(5)
-        
+
 
 ```
 
