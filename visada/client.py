@@ -3,6 +3,7 @@ import requests, json
 API_HOST='http://api.visada.io/'
 
 class VisadaAPI(object):
+
     def __init__(self, api_key):
         """
         Initialize the Visada API object with your API key.
@@ -21,7 +22,7 @@ class VisadaAPI(object):
         :return: review set ID (a string)
         """
 
-        api_endpoint = API_HOST + '/review_sets/'
+        api_endpoint = API_HOST + 'review_sets'
 
         response = requests.post(api_endpoint, headers=self.request_headers)
 
