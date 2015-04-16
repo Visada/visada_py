@@ -21,7 +21,6 @@ class VisadaAPI(object):
         :return: review set ID (a string)
         """
 
-
         api_endpoint = API_HOST + '/review_sets/'
 
         response = requests.post(api_endpoint, headers=self.request_headers)
