@@ -2,6 +2,9 @@ import requests, json
 
 API_HOST='https://api.visada.io/'
 
+
+VERIFY_SSL = False
+
 class VisadaAPI(object):
 
     def __init__(self, api_key):
@@ -15,7 +18,7 @@ class VisadaAPI(object):
         self.api_key = api_key
         self.request_headers = {'X-Visada-Api-Key':self.api_key}
 
-    def create_review_set(self):
+    def create_review_set(self, tag = None):
         """
         Creates a new review set.
 
@@ -24,7 +27,11 @@ class VisadaAPI(object):
 
         api_endpoint = API_HOST + 'review_sets'
 
-        response = requests.post(api_endpoint, headers=self.request_headers)
+        payload = {}
+        if tag is not None:
+            payload['tag'] = tag
+
+        response = requests.post(api_endpoint, headers=self.request_headers, data=payload, verify=VERIFY_SSL)
 
         review_set_id = response.json()['review_set_id']
 
@@ -35,7 +42,7 @@ class VisadaAPI(object):
         add_reviews_url = API_HOST + 'review_sets/' + review_set_id
         payload = {'reviews':json.dumps(review_chunk)}
 
-        response = requests.post(add_reviews_url, data=payload, headers=self.request_headers)
+        response = requests.post(add_reviews_url, data=payload, headers=self.request_headers, verify=VERIFY_SSL)
         return response.json()
 
 
@@ -58,7 +65,7 @@ class VisadaAPI(object):
         :return: status of the summarization process
         """
         response = requests.post(API_HOST + 'review_sets/%s/summarize' % review_set_id,
-                                headers=self.request_headers)
+                                headers=self.request_headers, verify=VERIFY_SSL)
 
         return response.json()
 
@@ -69,7 +76,8 @@ class VisadaAPI(object):
         :param review_set_id:
         :return:
         """
-        response = requests.get(API_HOST + 'review_sets/' + review_set_id, headers=self.request_headers)
+        response = requests.get(API_HOST + 'review_sets/' + review_set_id, headers=self.request_headers,
+                                verify=VERIFY_SSL)
         return response.json()
 
     def get_visualizer_url(self, review_set_id):
@@ -78,5 +86,5 @@ class VisadaAPI(object):
         :param review_set_id:
         :return url:
         """
-        return 'http://api.visada.io/review_sets/%s/visualize'%review_set_id
+        return 'https://api.visada.io/review_sets/%s/visualize'%review_set_id
 
