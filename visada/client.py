@@ -1,5 +1,7 @@
 import requests, json
 
+requests.packages.urllib3.disable_warnings() 
+
 API_HOST='https://api.visada.io/'
 
 
