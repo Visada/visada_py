@@ -32,7 +32,7 @@ Usage - Review Summarization
 # Create a new review set - you'll refer to it via its review_set_id
 review_set_id = api_client.create_review_set()
 
-# Add reviews to the review set; here's are examples of adding reviews.
+# Add reviews to the review set; here's an example of adding reviews.
 # A single review consists of the text of the review, and the score assigned to the review.
 # You'll want to add as many reviews as possible to get the best possible summary.
 
