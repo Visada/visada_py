@@ -71,3 +71,12 @@ class VisadaAPI(object):
         """
         response = requests.get(API_HOST + 'review_sets/' + review_set_id, headers=self.request_headers)
         return response.json()
+
+    def get_visualizer_url(self, review_set_id):
+        """
+        Retrieves url to online visualization tool
+        :param review_set_id:
+        :return url:
+        """
+        return 'http://api.visada.io/review_sets/%s/visualize'%review_set_id
+
