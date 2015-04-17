@@ -1,6 +1,6 @@
 import requests, json
 
-API_HOST='http://api.visada.io/'
+API_HOST='https://api.visada.io/'
 
 class VisadaAPI(object):
 
