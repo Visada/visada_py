@@ -56,4 +56,11 @@ while True:
 
 ```
 
+You can visualize the review summary via a special URL:
 
+```python
+    url = api_client.get_visualizer_url(review_set_id)
+'''
+
+Open the URL in your browser (just like the example above, [http://api.visada.io/review_sets/552ef4c6db5f093b870180be/visualize](http://api.visada.io/review_sets/552ef4c6db5f093b870180be/visualize)) to
+see the result.
