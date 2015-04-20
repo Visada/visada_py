@@ -16,7 +16,10 @@ of this [suitcase at Amazon](http://www.amazon.com/Rockland-Luggage-Melbourne-Ex
 Initialization
 --------------
 
-```python
+```$ pip install requests
+$ python setup.py install
+$ python
+
 import visada.client
 
 # Instantiate the API object with your API key
@@ -36,9 +39,9 @@ review_set_id = api_client.create_review_set()
 # A single review consists of the text of the review, and the score assigned to the review.
 # You'll want to add as many reviews as possible to get the best possible summary.
 
-api_client.add_review_to_review_set(review_set_id, 'This suitcase was so-so.', 3)
-api_client.add_review_to_review_set(review_set_id, 'This suitcase was amazing.', 5)
-api_client.add_review_to_review_set(review_set_id, 'This suitcase was terrible.', 1)
+api_client.add_review_to_review_set(review_set_id, 'This suitcase was so-so.', rating=3)
+api_client.add_review_to_review_set(review_set_id, 'This suitcase was amazing.', rating=5)
+api_client.add_review_to_review_set(review_set_id, 'This suitcase was terrible.', rating=1)
 
 # Once you've added all your reviews, start the summarization process
 
